@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }) => (
-  <html lang='en'>
+  <html lang=''>
     <body>
       <Provider>
         <div className='main'>
