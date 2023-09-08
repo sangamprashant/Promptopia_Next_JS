@@ -15,8 +15,16 @@ const Nav = () => {
     (async () => {
       const res = await getProviders();
       setProviders(res);
+      
     })();
   }, []);
+
+  // Function to handle sign-out and navigation
+const handleSignOut = async () => {
+  await signOut();
+  window.location.href = "/"; // Navigate to the home page
+  setToggleDropdown(false);
+};
 
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
@@ -39,7 +47,7 @@ const Nav = () => {
               Create Post
             </Link>
 
-            <button type='button' onClick={signOut} className='outline_btn'>
+            <button type='button' onClick={handleSignOut} className='outline_btn'>
               Sign Out
             </button>
 
@@ -103,10 +111,7 @@ const Nav = () => {
                 </Link>
                 <button
                   type='button'
-                  onClick={() => {
-                    setToggleDropdown(false);
-                    signOut();
-                  }}
+                  onClick={handleSignOut}
                   className='mt-5 w-full black_btn'
                 >
                   Sign Out
