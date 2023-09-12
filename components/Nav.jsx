@@ -43,6 +43,9 @@ const handleSignOut = async () => {
       <div className='sm:flex hidden'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
+            <Link href='/feed' className='black_btn'>
+             Feed
+            </Link>
             <Link href='/create-prompt' className='black_btn'>
               Create Post
             </Link>
@@ -64,7 +67,10 @@ const handleSignOut = async () => {
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((provider) => (
+              Object.values(providers).map((provider) => (<>
+                <Link href='/feed' className='black_btn'>
+                  feed
+                </Link>
                 <button
                   type='button'
                   key={provider.name}
@@ -75,6 +81,7 @@ const handleSignOut = async () => {
                 >
                   Sign in
                 </button>
+                </>
               ))}
           </>
         )}
@@ -103,6 +110,13 @@ const handleSignOut = async () => {
                   My Profile
                 </Link>
                 <Link
+                  href='/feed'
+                  className='dropdown_link'
+                  onClick={() => setToggleDropdown(false)}
+                >
+                 Feed
+                </Link>
+                <Link
                   href='/create-prompt'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
@@ -122,7 +136,13 @@ const handleSignOut = async () => {
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((provider) => (
+              Object.values(providers).map((provider) => (<>
+                <Link
+                  href='/feed'
+                  className='black_btn'
+                >
+                  Feed
+                </Link>
                 <button
                   type='button'
                   key={provider.name}
@@ -133,6 +153,7 @@ const handleSignOut = async () => {
                 >
                   Sign in
                 </button>
+                </>
               ))}
           </>
         )}
